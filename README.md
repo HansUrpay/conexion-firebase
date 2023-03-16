@@ -1,0 +1,6 @@
+- npm init -y
+- npm i firebase
+- npm i ejs -> para renderizar html
+- npm i express
+- npm i nodemon --> para actualizar el servidor en tiempo real
+- npm i dotenv --> para usar las variables de entorno
