@@ -1,9 +1,9 @@
-// VERSION WEB
+// Configuracion y conexion a DB de Firebase
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-// Your web app's Firebase configuration
+// credenciales del proyecto creado en firebase
 const firebaseConfig = initializeApp({
   apiKey: "AIzaSyAWbpsbtrXUMq1yboc934sej6voKZCIVgU",
   authDomain: "bd-prueba-19ce0.firebaseapp.com",
@@ -18,14 +18,6 @@ const firebaseConfig = initializeApp({
 // const db = getFirestore(app_db)
 
 export const db = getFirestore(firebaseConfig);
-
-// funcion de conexion a db de firestore
-// async function getContacts(db) {
-//   const contactos = collection(db, "contactos");
-//   const datos = await getDocs(contactos);
-//   const listaContactos = datos.docs.map((doc) => doc.data());
-//   return listaContactos;
-// }
 
 // funcion de autenticacion a db de firestore
 // const auth = getAuth(firebaseConfig);

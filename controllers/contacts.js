@@ -7,19 +7,20 @@ const contactos = collection(db, "contactos");
 export const getContact = async (req, res) => {
   try {
     const datos = await getDocs(contactos);
-    const data = datos.docs.map((doc) => {
-      return doc.data();
-    });
-    return success({ res, data });
-    //   res.render("index");
+    const data = datos.docs.map((doc) => doc.data());
+    // return success({ res, data });
+    res.render("index");
   } catch (error) {
     return failure({ res, msg: error });
   }
 };
 
 export const addContact = async (req, res) => {
-  const { body } = req;
-  console.log(body);
-  const data = await addDoc(contactos, body);
-  res.redirect("/");
+  try {
+    const { body } = req;
+    const data = await addDoc(contactos, body);
+    res.redirect("/");
+  } catch (error) {
+    return failure({ res, msg: error });
+  }
 };
