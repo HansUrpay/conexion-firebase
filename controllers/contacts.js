@@ -50,7 +50,7 @@ export const getData = async (req, res) => {
     const docRef = doc(db, "contactos", id);
     const contacto = await getDoc(docRef);
     const data = { id, datos: contacto.data() };
-    res.render("contacto", { data });
+    res.render("contact", { data });
   } catch (error) {
     return failure({ res, mes: error });
   }
