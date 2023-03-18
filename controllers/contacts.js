@@ -11,7 +11,7 @@ import { success, failure } from "../responses/index.js";
 
 const contactos = collection(db, "contactos");
 
-export const getContact = async (req, res) => {
+export const getContact = async (_req, res) => {
   try {
     const datos = await getDocs(contactos);
     const { docs } = datos;

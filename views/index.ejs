@@ -4,21 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>App prueba</title>
   </head>
   <body>
-    <h2>Funciona bien!</h2>
+    <h2>Agenda</h2>
     <form action="agregar" method="post">
       <input type="text" name="nombre" placeholder="nombre" />
       <input type="text" name="numero" placeholder="numero" />
       <input type="text" name="direccion" placeholder="direccion" />
       <input type="text" name="telefono" placeholder="telefono" />
       <button type="submit">Agregar contacto</button>
-      <br />
+      <div style="margin-top: 15px;">
       <% data.map(item => { %>
       <a href="contacto/<%= item.id%>"><%= item.datos.nombre %></a>
       <a href="borrar/<%= item.id%>">Borrar</a>
       <% }) %>
+      </div>
     </form>
   </body>
 </html>
