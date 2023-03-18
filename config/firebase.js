@@ -1,16 +1,19 @@
 // Configuracion y conexion a DB de Firebase
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { config } from "dotenv";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+config();
 
 // credenciales del proyecto creado en firebase
 const firebaseConfig = initializeApp({
-  apiKey: "AIzaSyAWbpsbtrXUMq1yboc934sej6voKZCIVgU",
-  authDomain: "bd-prueba-19ce0.firebaseapp.com",
-  projectId: "bd-prueba-19ce0",
-  storageBucket: "bd-prueba-19ce0.appspot.com",
-  messagingSenderId: "685185852330",
-  appId: "1:685185852330:web:77220addda9e4263bfc1d3",
+  apiKey: process.env.APIKEY,
+  authDomain: process.env.AUTHDOMAIN,
+  projectId: process.env.PROJECTID,
+  storageBucket: process.env.STORAGEBUCKET,
+  messagingSenderId: process.env.MESSAGINGSENDERID,
+  appId: process.env.APPID,
 });
 
 // otra manera de configurar el app de la BD
