@@ -1,4 +1,11 @@
-import { collection, getDocs, addDoc, doc, deleteDoc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  doc,
+  deleteDoc,
+  getDoc,
+} from "firebase/firestore";
 import { db } from "../config/firebase.js";
 import { success, failure } from "../responses/index.js";
 
@@ -27,12 +34,24 @@ export const addContact = async (req, res) => {
 };
 
 export const deleteContact = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const docRef = doc(db, 'contactos', id)
-        const datos = await deleteDoc(docRef)
-        res.redirect('/')
-    } catch (error) {
-        return failure({res, msg:error})
-    }
-}
+  try {
+    const { id } = req.params;
+    const docRef = doc(db, "contactos", id);
+    const datos = await deleteDoc(docRef);
+    res.redirect("/");
+  } catch (error) {
+    return failure({ res, msg: error });
+  }
+};
+
+export const getData = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const docRef = doc(db, "contactos", id);
+    const contacto = await getDoc(docRef);
+    const data = { id, datos: contacto.data() };
+    res.render("contacto", { data });
+  } catch (error) {
+    return failure({ res, mes: error });
+  }
+};

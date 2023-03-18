@@ -1,5 +1,10 @@
 import express from "express";
-import { getContact, addContact, deleteContact } from "./controllers/contacts.js";
+import {
+  getContact,
+  addContact,
+  deleteContact,
+  getData,
+} from "./controllers/contacts.js";
 // import routes from "./routes/index.js"; RESOLVER IMPORTACION DE ROUTES
 
 const app = express();
@@ -13,7 +18,8 @@ app.use(express.urlencoded({ extended: true })); //para convertir los datos envi
 
 app.get("/", getContact);
 app.post("/agregar", addContact);
-app.get('/borrar/:id', deleteContact)
+app.get("/borrar/:id", deleteContact);
+app.get("/contacto/:id", getData);
 
 // routes(app);
 
